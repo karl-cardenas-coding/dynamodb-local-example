@@ -1,16 +1,18 @@
 [![Go version](https://img.shields.io/github/go-mod/go-version/karl-cardenas-coding/dynamodb-local-example?filename=upload-tool%2Fgo.mod)](https://golang.org/dl/)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/karl-cardenas-coding/dynamodb-local-example.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/karl-cardenas-coding/dynamodb-local-example/alerts/)
+
 # DynamoDB-local-example
 This is an example project to showcase how to use DynamoDB locally while leveraging Terraform, localstack, and noSQL Workbench for DynamoDB. In-depth explanation provided in this the following Medium article, "How to use DynamoDB locally..".
 
 
 
 ## Changing JSON Content
-You can either replace the JSON content inside the file `static/raw-data.json` OR provide your own file. Just make sure you change the variable  value in the `terraform.tfvars` file. If you want to leverage the AWS CLI approach then follow the same steps, either replace `static/formatted-data.json` OR change the content inside. Just ensure that the content is in the correct format that DynamoDB expects (DynamoDB JSON).
+You can either replace the JSON content inside the file `static/raw-data.json` OR provide your own file. Just make sure you change the variable value `json-file-path` in the `terraform.tfvars` file. If you want to leverage the AWS CLI approach then follow the same steps, either replace `static/formatted-data.json` OR change the content inside. Just ensure that the content is in the correct format that DynamoDB expects (DynamoDB JSON).
 
 
 
 ## Customizing the upload script
-Customizing the upload script is pretty easy. The only file that that needs to be modified is the `/internal/upload.go`. Simply replace the content of the `Model` struct. Keep the same name `Model` please, otherwise the program will fail.
+Customizing the upload script is pretty easy. The only file that that needs to be modified is the `upload-tool/internal/upload.go`. Simply replace the content of the `Model` struct. Keep the same name `Model` please, otherwise the program will fail.
 
 Example ( - = *Removal*, + = *Addition*   )
 ```go
@@ -37,9 +39,9 @@ type Model struct {
 ```
 
 ## Compiling Binary
-Once you have the required change to `Model` struct all that is required for you is to compile the binary for the operating system you need it for. If you have Go installed on your environment, simply execute the `go build` command.
+Once you have the required change to the `Model` struct all that is required of you is to compile the binary for the operating system you need it for. If you have Go installed on your environment, simply execute the `go build` command.
 
- I have included build commands for the most common operating systems. Should you need to compile for other opearting systems please visit the Golang documentation for the proper `GOOS` and `GOARCH` [values](https://golang.org/doc/install/source). 
+ I have included build commands for the most common operating systems. Should you need to compile for other opearting systems please visit the Golang documentation for the proper `GOOS` and `GOARCH` [values](https://golang.org/doc/install/source). Place the compiled binary in the root of the project structure.
 
 
 ### Windows 64 bit

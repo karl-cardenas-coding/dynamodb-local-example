@@ -49,7 +49,9 @@ resource "aws_dynamodb_table" "main-table" {
     Environment = var.environment
   }
 }
-
+#
+# REMBER ONLY UNCOMMENT ONE OF THE TWO STEPS BELOW. THE Go script requires compiling, instructions provided in the README
+#
 ###################################
 # Execut AWS CLI script  Option 1/2
 ###################################
