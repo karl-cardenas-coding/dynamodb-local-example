@@ -10,7 +10,7 @@ updates:
     schedule:
       interval: "monthly"
 
-  - package-ecosystem: "terraform"
+  - package-ecosystem: "go"
     directory: "upload-tool/" # Location of package manifests
     schedule:
       interval: "monthly"
