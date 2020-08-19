@@ -53,24 +53,24 @@ resource "aws_dynamodb_table" "main-table" {
 # ############################
 # # Execut AWS CLI script
 # ############################
-resource "null_resource" "init-db" {
+# resource "null_resource" "init-db" {
 
-  // This will cause the upload script to only execute when the table changes id (recreate). 
-  triggers = {
-    new = aws_dynamodb_table.main-table.id
-  }
-  provisioner "local-exec" {
-    command = <<EOT
-      aws dynamodb batch-write-item --request-items file://static/formatted-data.json --endpoint-url http://localhost:4566
-    EOT
-  }
-  depends_on = [aws_dynamodb_table.main-table]
-}
+#   // This will cause the upload script to only execute when the table changes id (recreate). 
+#   triggers = {
+#     new = aws_dynamodb_table.main-table.id
+#   }
+#   provisioner "local-exec" {
+#     command = <<EOT
+#       aws dynamodb batch-write-item --request-items file://static/formatted-data.json --endpoint-url http://localhost:4566
+#     EOT
+#   }
+#   depends_on = [aws_dynamodb_table.main-table]
+# }
 
 
+##########################
+#Execut Go binary script
 ###########################
-# Execut Go binary script
-############################
 # resource "null_resource" "init-db-go" {
 #   // This will cause the upload script to only execute when the table changes id (recreate). 
 #   triggers = {
