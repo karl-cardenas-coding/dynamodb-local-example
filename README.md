@@ -4,6 +4,11 @@ This is an example project to showcase how to use DynamoDB locally while leverag
 
 
 
+## Changing JSON Content
+You can either replace the JSON content inside the file `static/raw-data.json` OR provide your own file. Just make sure you change the variable  value in the `terraform.tfvars` file. If you want to leverage the AWS CLI approach then follow the same steps, either replace `static/formatted-data.json` OR change the content inside. Just ensure that the content is in the correct format that DynamoDB expects (DynamoDB JSON).
+
+
+
 ## Customizing the upload script
 Customizing the upload script is pretty easy. The only file that that needs to be modified is the `/internal/upload.go`. Simply replace the content of the `Model` struct. Keep the same name `Model` please, otherwise the program will fail.
 
@@ -32,7 +37,7 @@ type Model struct {
 ```
 
 ## Compiling Binary
-Once you have the required change to `Model` strcut all that is required for you to compile the binary for the operating system you need it for. If you have Go installed in your environment, simply execute the `go build` command.
+Once you have the required change to `Model` struct all that is required for you is to compile the binary for the operating system you need it for. If you have Go installed on your environment, simply execute the `go build` command.
 
  I have included build commands for the most common operating systems. Should you need to compile for other opearting systems please visit the Golang documentation for the proper `GOOS` and `GOARCH` [values](https://golang.org/doc/install/source). 
 
