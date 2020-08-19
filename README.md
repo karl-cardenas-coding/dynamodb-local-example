@@ -21,11 +21,11 @@ type Model struct {
 // New example struct
 type Model struct {
 +	EmployeeId    string `json:"employeeId"`
-+	Division string `json:"Division"`
++	Division      string `json:"Division"`
 +	HiringDate    string `json:"HiringDate"`
-+	Email      string `json:"email"`
-+	PayGrade    string `json:"payGrade"`
-+   HRCode       string `json:"hrCode"`   
++	Email         string `json:"email"`
++	PayGrade      string `json:"payGrade"`
++   HRCode        string `json:"hrCode"`   
 }
 
 ```
