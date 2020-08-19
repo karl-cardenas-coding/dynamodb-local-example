@@ -47,3 +47,5 @@ override.tf.json
 
 # VScode
 .vscode/
+
+upload-logic
