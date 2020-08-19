@@ -34,13 +34,13 @@ resource "aws_dynamodb_table" "main-table" {
     projection_type = "ALL"
   }
 
-    global_secondary_index {
-    name               = "gsi-shipped"
-    hash_key           = "orderId"
-    range_key          = "shipped"
-    write_capacity     = 1
-    read_capacity      = 1
-    projection_type    = "ALL"
+  global_secondary_index {
+    name            = "gsi-shipped"
+    hash_key        = "orderId"
+    range_key       = "shipped"
+    write_capacity  = 1
+    read_capacity   = 1
+    projection_type = "ALL"
   }
 
 
@@ -50,27 +50,27 @@ resource "aws_dynamodb_table" "main-table" {
   }
 }
 
-# ############################
-# # Execut AWS CLI script
-# ############################
+###################################
+# Execut AWS CLI script  Option 1/2
+###################################
 # resource "null_resource" "init-db" {
 
-#   // This will cause the upload script to only execute when the table changes id (recreate). 
+// This will cause the upload script to only execute when the table changes id (recreate). 
 #   triggers = {
 #     new = aws_dynamodb_table.main-table.id
 #   }
 #   provisioner "local-exec" {
 #     command = <<EOT
-#       aws dynamodb batch-write-item --request-items file://static/formatted-data.json --endpoint-url http://localhost:4566
+#       aws dynamodb batch-write-item --request-items file://static/formatted-data.json --endpoint-url ${var.dynamodb-addr}
 #     EOT
 #   }
 #   depends_on = [aws_dynamodb_table.main-table]
 # }
 
 
-##########################
-#Execut Go binary script
-###########################
+#####################################
+# Execut Go binary script Option 2/2
+#####################################
 # resource "null_resource" "init-db-go" {
 #   // This will cause the upload script to only execute when the table changes id (recreate). 
 #   triggers = {
