@@ -1,10 +1,11 @@
+[![Go version](https://img.shields.io/github/go-mod/go-version/karl-cardenas-coding/dynamodb-local-example?filename=upload-tool%2Fgo.mod)](https://golang.org/dl/)
 # DynamoDB-local-example
 This is an example project to showcase how to use DynamoDB locally while leveraging Terraform, localstack, and noSQL Workbench for DynamoDB. In-depth explanation provided in this the following Medium article, "How to use DynamoDB locally..".
 
 
 
 ## Customizing the upload script
-Custommizing the upload script is pretty easy. The only file that that needs to be modified is the `/internal/upload.go`. Simply replace the content of the `Model` struct. Keep the same name please, otherwise the program will fail.
+Customizing the upload script is pretty easy. The only file that that needs to be modified is the `/internal/upload.go`. Simply replace the content of the `Model` struct. Keep the same name `Model` please, otherwise the program will fail.
 
 Example ( - = *Removal*, + = *Addition*   )
 ```go
