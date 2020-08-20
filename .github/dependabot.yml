@@ -5,11 +5,6 @@
 
 version: 2
 updates:
-  - package-ecosystem: "terraform"
-    directory: "/" # Location of package manifests
-    schedule:
-      interval: "monthly"
-
   - package-ecosystem: "gomod"
     directory: "upload-tool/" # Location of package manifests
     schedule:
