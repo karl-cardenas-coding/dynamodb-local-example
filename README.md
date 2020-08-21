@@ -2,8 +2,7 @@
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/karl-cardenas-coding/dynamodb-local-example.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/karl-cardenas-coding/dynamodb-local-example/alerts/)
 
 # DynamoDB-local-example
-This is an example project to showcase how to use DynamoDB locally while leveraging Terraform, localstack, and noSQL Workbench for DynamoDB. In-depth explanation provided in this the following Medium article, "How to use DynamoDB locally..".
-
+This is an example project to showcase how to use DynamoDB locally while leveraging Terraform, localstack, and noSQL Workbench for DynamoDB. In-depth explanation provided in this the following Medium article, ["How to use DynamoDB locally.."](https://medium.com/@cardenas88karl/how-to-use-aws-dynamodb-locally-ad3bb6bd0163#92fe-53da0f183cd6)
 
 
 ## Changing JSON Content
