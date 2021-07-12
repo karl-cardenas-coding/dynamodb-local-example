@@ -9,8 +9,6 @@ resource "aws_dynamodb_table" "main-table" {
   hash_key       = "orderId"
   range_key      = "customerId"
 
-  stream_enabled   = true
-  stream_view_type = "NEW_IMAGE"
 
   attribute {
     name = "orderId"
@@ -73,21 +71,21 @@ resource "aws_dynamodb_table" "main-table" {
 #####################################
 # Execut Go binary script Option 2/2
 #####################################
-# resource "null_resource" "init-db-go" {
-#   // This will cause the upload script to only execute when the table changes id (recreate). 
-#   triggers = {
-#     new = aws_dynamodb_table.main-table.id
-#   }
-#   provisioner "local-exec" {
-#     command = <<EOT
-#       ./upload-logic
-#     EOT
-#     environment = {
-#       TABLE_NAME = aws_dynamodb_table.main-table.id
-#       REGION = var.region
-#       DYNAMODB_ADDR = var.dynamodb-addr
-#       JSON_PATH = var.json-file-path
-#     }
-#   }
-#   depends_on = [aws_dynamodb_table.main-table]
-# }
+resource "null_resource" "init-db-go" {
+  // This will cause the upload script to only execute when the table changes id (recreate). 
+  triggers = {
+    new = aws_dynamodb_table.main-table.id
+  }
+  provisioner "local-exec" {
+    command = <<EOT
+      ./upload-logic
+    EOT
+    environment = {
+      TABLE_NAME = aws_dynamodb_table.main-table.id
+      REGION = var.region
+      DYNAMODB_ADDR = var.dynamodb-addr
+      JSON_PATH = var.json-file-path
+    }
+  }
+  depends_on = [aws_dynamodb_table.main-table]
+}
